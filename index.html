@@ -10,7 +10,7 @@
      ═════════════════════════════════════════════════════════════ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500;1,9..144,600&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper:#F4FFFC;
@@ -260,7 +260,13 @@
   .trait:hover{transform:translateY(-3px) rotate(-1deg);background:rgba(195,233,86,.5)}
   .hi-title{font-size:clamp(2rem,4.6vw,3rem);font-weight:800;letter-spacing:-.035em;margin:26px 0 0}
   .hi-title em{font-style:italic;font-weight:600;color:var(--olive)}
-  .hi-tag{max-width:560px;margin:12px auto 0;font-size:1.02rem;color:var(--muted);font-weight:600}
+  .hi-tag{
+    max-width:620px;margin:14px auto 0;
+    font-family:'Fraunces',Georgia,'Times New Roman',serif;font-style:italic;
+    font-size:clamp(1.15rem,2.4vw,1.4rem);font-weight:500;line-height:1.5;
+    color:var(--ink);letter-spacing:.01em;
+  }
+  .hi-tag .q{color:var(--olive);font-size:1.3em;font-weight:600;line-height:0}
   .hi-quote{
     max-width:600px;margin:26px auto 0;padding:20px 30px;border-radius:20px;
     background:rgba(244,255,252,.55);border:1px solid rgba(255,255,255,.8);
@@ -488,7 +494,7 @@
     <span class="trait reveal-pop" style="--d:.33s">Always Learning</span>
   </div>
   <h2 class="hi-title reveal" style="--d:.1s">Hi, I'm <em>Thư.</em></h2>
-  <p class="hi-tag reveal" style="--d:.18s">A Russian language-and-culture student, trained by very different audiences and cultural perspectives.</p>
+  <p class="hi-tag reveal" style="--d:.18s"><span class="q">"</span>A Russian language-and-culture student, trained by very different audiences and cultural perspectives.<span class="q">"</span></p>
 </section>
 
 <section id="about">
