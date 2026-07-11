@@ -70,17 +70,18 @@
   .nav-in{
     display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:nowrap;
     padding:9px 10px 9px 22px;border-radius:99px;
-    background:rgba(244,255,252,.7);border:1px solid var(--stroke);
-    box-shadow:0 14px 40px rgba(8,26,14,.28),inset 0 1px 0 rgba(255,255,255,.85);
-    -webkit-backdrop-filter:blur(18px) saturate(1.2);backdrop-filter:blur(18px) saturate(1.2);
+    background:linear-gradient(135deg,rgba(244,255,252,.5) 0%,rgba(244,255,252,.32) 55%,rgba(244,255,252,.42) 100%);
+    border:1px solid rgba(255,255,255,.5);
+    box-shadow:0 14px 40px rgba(8,26,14,.28),inset 0 1px 0 rgba(255,255,255,.6),inset 0 -1px 0 rgba(255,255,255,.15);
+    -webkit-backdrop-filter:blur(24px) saturate(1.5);backdrop-filter:blur(24px) saturate(1.5);
     transition:box-shadow .4s var(--ease),background .4s var(--ease);
   }
-  nav.scrolled .nav-in{background:rgba(244,255,252,.84);box-shadow:0 10px 30px rgba(8,26,14,.36),inset 0 1px 0 rgba(255,255,255,.85)}
+  nav.scrolled .nav-in{background:linear-gradient(135deg,rgba(244,255,252,.6) 0%,rgba(244,255,252,.42) 55%,rgba(244,255,252,.52) 100%);box-shadow:0 10px 30px rgba(8,26,14,.36),inset 0 1px 0 rgba(255,255,255,.65)}
   .logo{font-weight:800;font-size:.98rem;letter-spacing:-.02em;text-decoration:none;white-space:nowrap;flex:0 0 auto}
   .logo span{color:var(--olive)}
   .nav-links{display:flex;gap:2px;list-style:none;flex-wrap:nowrap;min-width:0}
   .nav-links a{
-    display:block;text-decoration:none;font-size:.82rem;font-weight:600;color:var(--muted);white-space:nowrap;
+    display:block;text-decoration:none;font-size:.82rem;font-weight:700;color:rgba(20,52,30,.85);white-space:nowrap;
     padding:8px 12px;border-radius:99px;transition:color .25s var(--ease),background .25s var(--ease);
   }
   .nav-links a:hover{color:var(--forest)}
@@ -103,7 +104,7 @@
   nav.open .menu-btn span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
   .mobile-menu{
     display:none;position:absolute;top:calc(100% + 10px);left:0;right:0;
-    background:rgba(244,255,252,.9);border:1px solid var(--stroke);border-radius:24px;
+    background:linear-gradient(160deg,rgba(244,255,252,.62),rgba(244,255,252,.45));border:1px solid rgba(255,255,255,.55);border-radius:24px;
     box-shadow:0 24px 60px rgba(8,26,14,.4),inset 0 1px 0 rgba(255,255,255,.9);
     -webkit-backdrop-filter:blur(20px) saturate(1.2);backdrop-filter:blur(20px) saturate(1.2);
     padding:12px;flex-direction:column;gap:2px;
