@@ -173,7 +173,21 @@
   .btn-ghost{border:1px solid rgba(244,255,252,.4);color:var(--paper);
     background:rgba(244,255,252,.08);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
   .btn-ghost:hover{border-color:var(--paper);transform:translateY(-5px) scale(1.04);background:rgba(244,255,252,.16)}
-  .hero-meta{margin-top:58px;display:flex;flex-wrap:wrap;border-top:1px solid rgba(244,255,252,.2)}
+  .hero-id{
+    display:inline-flex;align-items:center;flex-wrap:wrap;gap:6px 14px;margin-top:26px;
+    padding:12px 22px;border-radius:99px;
+    background:rgba(31,75,44,.32);border:1px solid rgba(145,234,175,.35);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    font-size:.86rem;color:rgba(244,255,252,.92);
+    transition:border-color .3s var(--ease),transform .3s var(--ease);
+  }
+  .hero-id:hover{border-color:rgba(195,233,86,.7);transform:translateY(-3px)}
+  .hero-id b{font-weight:800;color:var(--paper)}
+  .hero-id i{font-style:normal;width:4px;height:4px;border-radius:50%;background:var(--lime);flex:0 0 auto}
+  .hero-id a{color:var(--mint);text-decoration:none;border-bottom:1px solid rgba(145,234,175,.4);transition:color .25s,border-color .25s}
+  .hero-id a:hover{color:var(--lime);border-color:var(--lime)}
+  @media(max-width:640px){.hero-id{border-radius:22px;font-size:.8rem}}
+  .hero-meta{margin-top:44px;display:flex;flex-wrap:wrap;border-top:1px solid rgba(244,255,252,.2)}
   .hero-meta > div{padding:22px 36px 0 0;margin-right:36px;font-size:.82rem;color:rgba(244,255,252,.82);
     transition:transform .3s var(--ease)}
   .hero-meta > div:hover{transform:translateY(-9px)}
@@ -475,7 +489,14 @@
       <a class="btn btn-solid" href="#contact">Contact me</a>
       <a class="btn btn-ghost" href="https://www.linkedin.com/in/minh-th%C6%B0-nguy%E1%BB%85n-95a494408/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    <div class="hero-meta hero-load" style="--d:.6s">
+    <div class="hero-id hero-load" style="--d:.58s">
+      <b>Nguyễn Minh Thư</b>
+      <i></i><span>Born 2005</span>
+      <i></i><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=ngminhthumui@gmail.com" target="_blank" rel="noopener">ngminhthumui@gmail.com</a>
+      <i></i><span>0879 130 613</span>
+      <i></i><span>Cau Giay district, Hanoi</span>
+    </div>
+    <div class="hero-meta hero-load" style="--d:.72s">
       <div><b><span class="cnt" data-count="3">0</span><span class="plus">+</span></b>languages - VN · EN · RU</div>
       <div><b><span class="cnt" data-count="5">0</span></b>hands-on roles since 2023</div>
       <div><b><span class="cnt" data-count="2">0</span></b>product projects</div>
@@ -693,12 +714,13 @@
 <section class="contact" id="contact">
   <h2 class="reveal">Let's bring culture closer, <em>together.</em></h2>
   <div class="contact-card reveal">
+    <div class="cc"><span>Name</span><b>Nguyễn Minh Thư</b></div>
+    <div class="cc"><span>Born</span><b>2005</b></div>
     <div class="cc"><span>Email</span><b><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=ngminhthumui@gmail.com" target="_blank" rel="noopener">ngminhthumui@gmail.com</a></b></div>
     <div class="cc"><span>Phone</span><b>0879 130 613</b></div>
     <div class="cc"><span>Zalo</span><b>0859 130 613</b></div>
     <div class="cc"><span>LinkedIn</span><b><a href="https://www.linkedin.com/in/minh-th%C6%B0-nguy%E1%BB%85n-95a494408/" target="_blank" rel="noopener">Nguyễn Minh Thư ↗</a></b></div>
     <div class="cc"><span>Address</span><b>Cau Giay district, Hanoi</b></div>
-    <div class="cc"><span>Born</span><b>2005</b></div>
   </div>
 </section>
 
