@@ -384,6 +384,25 @@
   .proj .links a{text-decoration:none;color:var(--forest);border-bottom:2px solid var(--lime);margin-right:16px}
   .proj .links a:hover{color:var(--olive);border-color:var(--olive)}
 
+  /* skills */
+  .skill-lead{
+    font-size:1.06rem;font-weight:700;color:var(--forest);margin-bottom:20px;
+    padding-left:16px;border-left:3px solid var(--lime);
+  }
+  .skill-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 26px}
+  @media(max-width:760px){.skill-grid{grid-template-columns:1fr}}
+  .skill{
+    position:relative;padding:11px 16px 11px 38px;border-radius:14px;
+    background:rgba(244,255,252,.42);border:1px solid rgba(255,255,255,.6);
+    font-size:.9rem;font-weight:600;color:var(--ink);line-height:1.4;
+    transition:transform .3s var(--spring),background .3s var(--ease),border-color .3s var(--ease);
+  }
+  .skill::before{
+    content:"";position:absolute;left:16px;top:1.05em;width:9px;height:9px;border-radius:3px;
+    background:var(--lime);border:1.5px solid var(--olive);
+  }
+  .skill:hover{transform:translateY(-4px);background:rgba(195,233,86,.34);border-color:var(--mint)}
+
   /* toolbox */
   .tools{display:flex;flex-wrap:wrap;gap:10px}
   .tool{
@@ -449,6 +468,7 @@
       <ul class="nav-links">
         <li><a href="#hi">About</a></li>
         <li><a href="#work">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#toolbox">Toolbox</a></li>
         <li><a href="#why">Why Goethe</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -459,6 +479,7 @@
     <div class="mobile-menu" id="mobileMenu">
       <a href="#hi">About</a>
       <a href="#work">Experience</a>
+      <a href="#skills">Skills</a>
       <a href="#toolbox">Toolbox</a>
       <a href="#why">Why Goethe</a>
       <a href="#contact">Contact</a>
@@ -482,9 +503,9 @@
       <a class="btn btn-ghost magnetic" href="https://www.linkedin.com/in/minh-th%C6%B0-nguy%E1%BB%85n-95a494408/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
     <div class="hero-meta hero-load" style="--d:.6s">
-      <div><b><span class="cnt" data-count="125">0</span><span class="plus">+</span></b>online communities researched &amp; mapped</div>
-      <div><b><span class="cnt" data-count="6">0</span></b>hands-on roles since 2023</div>
-      <div><b><span class="cnt" data-count="3">0</span></b>languages - VN · EN · RU</div>
+      <div><b><span class="cnt" data-count="125">125</span><span class="plus">+</span></b>online communities researched &amp; mapped</div>
+      <div><b><span class="cnt" data-count="6">6</span><span class="plus">+</span></b>hands-on roles since 2023</div>
+      <div><b><span class="cnt" data-count="3">3</span><span class="plus">+</span></b>languages - VN · EN · RU</div>
     </div>
   </div>
 </header>
@@ -666,8 +687,28 @@
   </div>
 </section>
 
+<section id="skills">
+  <div class="label reveal"><i>03</i>Skills</div>
+  <h2 class="reveal">What I <em>bring to the table</em></h2>
+  <div class="skill-lead reveal">Creator &amp; community outreach at volume</div>
+  <div class="skill-grid">
+    <div class="skill reveal-pop">High-volume inquiry &amp; inbox handling</div>
+    <div class="skill reveal-pop" style="--d:.04s">Affiliate &amp; sample-request tracking</div>
+    <div class="skill reveal-pop" style="--d:.08s">Spreadsheet-first performance reporting</div>
+    <div class="skill reveal-pop" style="--d:.12s">Viral &amp; competitor content analysis</div>
+    <div class="skill reveal-pop" style="--d:.16s">Research &amp; data organization at scale</div>
+    <div class="skill reveal-pop" style="--d:.2s">Written communication &amp; response evaluation</div>
+    <div class="skill reveal-pop" style="--d:.24s">Bilingual (EN / VI) content planning</div>
+    <div class="skill reveal-pop" style="--d:.28s">Detail-oriented, repetitive execution</div>
+    <div class="skill reveal-pop" style="--d:.32s">Hands-on content creation for TikTok / Meta / Reddit-style formats &amp; community building</div>
+    <div class="skill reveal-pop" style="--d:.36s">Comfortable working remotely or hybrid, self-driven</div>
+    <div class="skill reveal-pop" style="--d:.4s">Creativity, adaptability &amp; an understanding of online communities</div>
+    <div class="skill reveal-pop" style="--d:.44s">Multilingual comfort (Vietnamese · English · Russian) for connecting with diverse creators &amp; outbound clients</div>
+  </div>
+</section>
+
 <section id="toolbox">
-  <div class="label reveal"><i>03</i>Toolbox</div>
+  <div class="label reveal"><i>04</i>Toolbox</div>
   <h2 class="reveal">What I <em>work with daily</em></h2>
   <div class="tools">
     <span class="tool reveal-pop">Canva</span>
@@ -685,7 +726,7 @@
 </section>
 
 <section class="why" id="why">
-  <div class="label reveal"><i>04</i>Why Goethe-Institut</div>
+  <div class="label reveal"><i>05</i>Why Goethe-Institut</div>
   <h2 class="reveal">I chose a degree in language <em>because of culture.</em></h2>
   <div class="reveal">
     <p>
@@ -702,7 +743,7 @@
 </section>
 
 <section class="contact" id="contact">
-  <div class="label reveal"><i>05</i>Contact</div>
+  <div class="label reveal"><i>06</i>Contact</div>
   <h2 class="reveal">Let's bring culture closer, <em>together.</em></h2>
   <a class="mail reveal" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=ngminhthumui@gmail.com" target="_blank" rel="noopener">ngminhthumui@gmail.com</a>
   <div class="contact-list reveal" style="--d:.1s">
@@ -777,7 +818,7 @@
   document.querySelectorAll('.cnt').forEach(function(el){ cio.observe(el); });
 
   /* active nav link */
-  var sections = ['hi','about','work','toolbox','why','contact'];
+  var sections = ['hi','about','work','skills','toolbox','why','contact'];
   var links = document.querySelectorAll('.nav-links a, .mobile-menu a:not(.m-badge)');
   var sio = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
