@@ -209,7 +209,7 @@
 
   /* ── HI - intro ── */
   .hi{text-align:center;padding:56px 40px 64px}
-  .badge-cloud{position:relative;width:min(620px,100%);height:300px;margin:0 auto}
+  .badge-cloud{position:relative;width:min(740px,100%);height:560px;margin:0 auto}
   .hi-avatar{
     position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
     width:150px;height:150px;border-radius:50%;overflow:visible;
@@ -235,26 +235,62 @@
     background:var(--mint);box-shadow:0 0 10px var(--mint)}
   @keyframes spin{to{transform:rotate(1turn)}}
   @keyframes breathe{from{filter:drop-shadow(0 0 0 rgba(195,233,86,.0))}to{filter:drop-shadow(0 0 22px rgba(195,233,86,.35))}}
-  .float-badge{position:absolute;will-change:transform;z-index:3}
-  .float-badge .bob{
-    display:inline-flex;align-items:center;gap:7px;white-space:nowrap;
-    background:rgba(244,255,252,.85);border:1px solid rgba(255,255,255,.9);border-radius:99px;
-    padding:8px 15px;font-size:.66rem;font-weight:800;letter-spacing:.14em;color:var(--forest);
-    box-shadow:0 10px 26px rgba(8,26,14,.22),inset 0 1px 0 #fff;
-    animation:bob var(--bt,5s) ease-in-out var(--bd,0s) infinite alternate;
+  /* ── clouds drifting around the avatar ── */
+  .gtk-head{margin:0 auto 14px;font-size:.73rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--olive)}
+  .gtk-head i{font-style:normal;display:inline-block;background:var(--lime);color:var(--forest);
+    border-radius:6px;padding:2px 8px;margin-right:10px;letter-spacing:0}
+  .cloud-slot{
+    position:absolute;left:50%;top:50%;width:0;height:0;z-index:3;
+    --r:205px;animation:cloudOrbit var(--dur,84s) linear infinite;will-change:transform;
   }
-  .float-badge .dot{width:8px;height:8px;border-radius:3px;flex:0 0 auto}
-  @keyframes bob{from{transform:translateY(-7px) rotate(-1.6deg)}to{transform:translateY(7px) rotate(1.6deg)}}
-  .fb-1{left:7%;top:6%}
-  .fb-2{right:6%;top:12%}
-  .fb-3{left:0;top:58%}
-  .fb-4{right:0;top:54%}
-  .fb-5{left:50%;bottom:-2%;margin-left:-96px}
-  @media(max-width:640px){
-    .badge-cloud{height:250px}
-    .hi-avatar{width:118px;height:118px}
-    .float-badge .bob{padding:6px 11px;font-size:.56rem}
-    .fb-1{left:0;top:4%}.fb-2{right:0;top:10%}.fb-3{left:-2%;top:60%}.fb-4{right:-2%;top:56%}.fb-5{margin-left:-78px}
+  .badge-cloud:hover .cloud-slot,.badge-cloud:hover .cloud-bob{animation-play-state:paused}
+  @keyframes cloudOrbit{
+    0%{transform:translate(var(--r),0)}
+    8.333%{transform:translate(calc(var(--r) * .866),calc(var(--r) * .5))}
+    16.666%{transform:translate(calc(var(--r) * .5),calc(var(--r) * .866))}
+    25%{transform:translate(0,var(--r))}
+    33.333%{transform:translate(calc(var(--r) * -.5),calc(var(--r) * .866))}
+    41.666%{transform:translate(calc(var(--r) * -.866),calc(var(--r) * .5))}
+    50%{transform:translate(calc(var(--r) * -1),0)}
+    58.333%{transform:translate(calc(var(--r) * -.866),calc(var(--r) * -.5))}
+    66.666%{transform:translate(calc(var(--r) * -.5),calc(var(--r) * -.866))}
+    75%{transform:translate(0,calc(var(--r) * -1))}
+    83.333%{transform:translate(calc(var(--r) * .5),calc(var(--r) * -.866))}
+    91.666%{transform:translate(calc(var(--r) * .866),calc(var(--r) * -.5))}
+    100%{transform:translate(var(--r),0)}
+  }
+  /* centring is STATIC (never inside an animation, so it survives reduce-motion) */
+  .cloud-center{position:absolute;left:0;top:0;width:max-content;max-width:190px;
+    display:flex;justify-content:center;transform:translate(-50%,-50%)}
+  .cloud-bob{animation:cloudBob var(--bt,7s) ease-in-out var(--bd,0s) infinite alternate}
+  @keyframes cloudBob{
+    from{transform:translateY(-6px) rotate(-1.4deg)}
+    to{transform:translateY(6px) rotate(1.4deg)}
+  }
+  .cloud{
+    position:relative;max-width:var(--mw,166px);
+    background:#F2FBF4;opacity:.95;
+    border-radius:var(--rad,46px 42px 44px 40px);
+    padding:var(--pad,12px 20px);
+    font-size:var(--fs,.62rem);font-weight:800;letter-spacing:.1em;line-height:1.34;
+    color:var(--forest);text-align:center;
+    box-shadow:0 16px 34px rgba(8,26,14,.26);
+    transition:transform .4s var(--spring);
+  }
+  .cloud::before,.cloud::after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .cloud::before{width:var(--bw1,54%);height:var(--bh1,74%);left:var(--bl1,7%);top:var(--bt1,-30%)}
+  .cloud::after{width:var(--bw2,38%);height:var(--bh2,58%);right:var(--br2,10%);top:var(--bt2,-20%)}
+  .cloud span{position:relative;z-index:2}
+  .cloud-slot:hover .cloud{transform:scale(1.1)}
+  @media(max-width:900px){
+    .badge-cloud{width:100%;height:auto;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:13px 11px}
+    .cloud-slot{position:static;left:auto;top:auto;width:auto;height:auto;animation:none}
+    .cloud-center{position:static;left:auto;top:auto;transform:none;max-width:none}
+    .cloud{--mw:none;--fs:.56rem;--pad:10px 16px;--rad:34px 30px 32px 28px;max-width:44vw}
+    .hi-avatar{position:relative;left:auto;top:auto;transform:none;flex:0 0 100%;
+      width:124px;height:124px;margin:4px auto 14px;order:-1}
+    .hi-avatar .ring{inset:-10px}
+    .hi-avatar .ring2{inset:-20px}
   }
   .hi-title{font-size:clamp(2rem,4.6vw,3rem);font-weight:800;letter-spacing:-.035em;margin:30px 0 0}
   .hi-title em{font-style:italic;font-weight:600;color:var(--olive)}
@@ -448,9 +484,20 @@
     *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
     html{scroll-behavior:auto}
     .reveal,.reveal-pop,.hero-load{opacity:1;transform:none}
-    .car-inner{animation-duration:26s !important;animation-iteration-count:infinite !important}
-    .t-card{animation-duration:26s !important;animation-iteration-count:infinite !important}
+    /* keep the signature ambient motion alive - slow, non-jarring, no scroll-triggered movement */
+    .car-inner,.t-card{animation-duration:26s !important;animation-iteration-count:infinite !important}
     .marquee-track{animation-duration:32s !important;animation-iteration-count:infinite !important}
+    .cloud-slot{animation-duration:84s !important;animation-iteration-count:infinite !important}
+    .cloud-bob{animation-duration:7s !important;animation-iteration-count:infinite !important}
+    .orb-1{animation-duration:34s !important;animation-iteration-count:infinite !important}
+    .orb-2{animation-duration:41s !important;animation-iteration-count:infinite !important}
+    .orb-3{animation-duration:47s !important;animation-iteration-count:infinite !important}
+    .hi-avatar{animation-duration:5s !important;animation-iteration-count:infinite !important}
+    .hi-avatar .ring{animation-duration:14s !important;animation-iteration-count:infinite !important}
+    .hi-avatar .ring2{animation-duration:22s !important;animation-iteration-count:infinite !important}
+    .avatar{animation-duration:7s !important;animation-iteration-count:infinite !important}
+    h1 em{animation-duration:6s !important;animation-iteration-count:infinite !important}
+    .kicker i{animation-duration:2.6s !important;animation-iteration-count:infinite !important}
   }
 </style>
 </head>
@@ -512,22 +559,60 @@
 
 <div class="marquee hero-load" style="--d:.75s" aria-hidden="true">
   <div class="marquee-track" id="marqueeTrack">
-    <span><i></i>Canva</span><span><i></i>CapCut</span><span><i></i>ChatGPT</span>
-    <span><i></i>Claude Ecosystem</span><span><i></i>n8n</span><span><i></i>SEO</span>
-    <span><i></i>CRM</span><span><i></i>ClickUp</span><span><i></i>GitHub</span>
-    <span><i></i>Microsoft Office</span><span><i></i>Google Workspace</span>
+    <span><i></i>Curious by default</span><span><i></i>Language nerd</span>
+    <span><i></i>Story collector</span><span><i></i>Listens first</span>
+    <span><i></i>Kind, then clever</span><span><i></i>Always learning</span>
+    <span><i></i>Happiest backstage</span>
   </div>
 </div>
 
 <main>
 
 <section class="hi" id="hi">
+  <div class="gtk-head reveal"><i>✦</i>Get to know me</div>
   <div class="badge-cloud reveal">
-    <div class="float-badge fb-1" data-depth="1.1" style="--bt:5.2s;--bd:.2s"><span class="bob"><i class="dot" style="background:#91EAAF"></i>COMMUNITY RESEARCH</span></div>
-    <div class="float-badge fb-2" data-depth=".8" style="--bt:6.1s;--bd:.6s"><span class="bob"><i class="dot" style="background:#C3E956"></i>EVENT SUPPORT</span></div>
-    <div class="float-badge fb-3" data-depth="1.3" style="--bt:5.7s;--bd:.9s"><span class="bob"><i class="dot" style="background:#4D7111"></i>CONTENT PLANNING</span></div>
-    <div class="float-badge fb-4" data-depth=".9" style="--bt:6.6s;--bd:.35s"><span class="bob"><i class="dot" style="background:#1F4B2C"></i>PERFORMANCE TRACKING</span></div>
-    <div class="float-badge fb-5" data-depth="1.2" style="--bt:5s;--bd:.75s"><span class="bob"><i class="dot" style="background:#91EAAF"></i>VIDEO SCRIPTING</span></div>
+    <div class="cloud-slot" style="animation-delay:0s">
+      <div class="cloud-center"><div class="cloud-bob" style="--bt:6.8s;--bd:0s">
+        <div class="cloud" style="--mw:152px;--fs:.62rem;--rad:48px 42px 46px 40px;--bw1:56%;--bh1:76%;--bl1:6%;--bt1:-32%;--bw2:36%;--bh2:56%;--br2:9%;--bt2:-20%">
+          <span>FILM-NIGHT PERSON</span>
+        </div>
+      </div></div>
+    </div>
+    <div class="cloud-slot" style="animation-delay:-14s">
+      <div class="cloud-center"><div class="cloud-bob" style="--bt:7.6s;--bd:.5s">
+        <div class="cloud" style="--mw:128px;--fs:.56rem;--pad:10px 16px;--rad:38px 34px 40px 32px;--bw1:50%;--bh1:70%;--bl1:10%;--bt1:-27%;--bw2:32%;--bh2:52%;--br2:12%;--bt2:-17%">
+          <span>CULTURE BRIDGE</span>
+        </div>
+      </div></div>
+    </div>
+    <div class="cloud-slot" style="animation-delay:-28s">
+      <div class="cloud-center"><div class="cloud-bob" style="--bt:6.2s;--bd:.9s">
+        <div class="cloud" style="--mw:172px;--fs:.66rem;--pad:15px 24px;--rad:54px 46px 52px 44px;--bw1:60%;--bh1:72%;--bl1:5%;--bt1:-30%;--bw2:42%;--bh2:60%;--br2:7%;--bt2:-24%">
+          <span>ASKS TOO MANY QUESTIONS</span>
+        </div>
+      </div></div>
+    </div>
+    <div class="cloud-slot" style="animation-delay:-42s">
+      <div class="cloud-center"><div class="cloud-bob" style="--bt:7.2s;--bd:.3s">
+        <div class="cloud" style="--mw:140px;--fs:.6rem;--pad:12px 19px;--rad:42px 48px 40px 46px;--bw1:52%;--bh1:78%;--bl1:9%;--bt1:-33%;--bw2:34%;--bh2:54%;--br2:14%;--bt2:-18%">
+          <span>WARM &amp; ORGANIZED</span>
+        </div>
+      </div></div>
+    </div>
+    <div class="cloud-slot" style="animation-delay:-56s">
+      <div class="cloud-center"><div class="cloud-bob" style="--bt:8s;--bd:.7s">
+        <div class="cloud" style="--mw:166px;--fs:.64rem;--pad:14px 22px;--rad:50px 44px 48px 42px;--bw1:58%;--bh1:74%;--bl1:7%;--bt1:-31%;--bw2:40%;--bh2:58%;--br2:8%;--bt2:-22%">
+          <span>OVER-PREPARES ON PURPOSE</span>
+        </div>
+      </div></div>
+    </div>
+    <div class="cloud-slot" style="animation-delay:-70s">
+      <div class="cloud-center"><div class="cloud-bob" style="--bt:6.6s;--bd:1.1s">
+        <div class="cloud" style="--mw:178px;--fs:.62rem;--pad:14px 22px;--rad:46px 52px 44px 50px;--bw1:62%;--bh1:70%;--bl1:4%;--bt1:-28%;--bw2:38%;--bh2:56%;--br2:9%;--bt2:-21%">
+          <span>THREE LANGUAGES, ONE CURIOSITY</span>
+        </div>
+      </div></div>
+    </div>
     <div class="hi-avatar" data-depth=".35">
       <span class="ring"></span><span class="ring2"></span>
       <img src="photo.jpg" alt="Nguyễn Minh Thư">
